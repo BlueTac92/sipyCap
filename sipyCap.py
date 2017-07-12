@@ -34,15 +34,6 @@ def find_cseq(callid):
         except AttributeError as e:
             pass
 
-
-
-# extract_media will return a list containing all the sets of media information
-# m = extract_media(callid)
-# print(m)
-# [ {ip: 172.168.0.1, port: 7941},
-#   {ip: 172.168.0.2, port: 8461}]
-
-
 def extract_media(callid):
     media = []
     for pkt in cap:
@@ -79,12 +70,3 @@ for media in call_media:
     print(media)
 
 
-
-
-
-"""
-    find_cseq(input_callid)
-    find_pkt_media(input_callid)
-    for x in cseq:
-        print(x)
-        """
