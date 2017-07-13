@@ -3,7 +3,7 @@
 import pyshark
 
 input_callid = '191f6237850fd0f51352749e35e496cd4750ee'
-cap = pyshark.FileCapture('example1.pcap')
+cap = pyshark.FileCapture('./test/example1.pcap')
 sdp = {}
 cseq = []
 
@@ -67,6 +67,6 @@ else:
 
 call_media = extract_media(input_callid)
 for media in call_media:
-    print(media)
+    print(media["ip"] + ":" + media["port"] + " [pkt source: " + media["src_ip"] + " pkt destination: " + media["dst_ip"] + "]")
 
 
