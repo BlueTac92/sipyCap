@@ -1,13 +1,21 @@
 #!/usr/bin/python
-# test
-# making more changes
 
 import pyshark
 
 input_callid = '191f6237850fd0f51352749e35e496cd4750ee'
-cap = pyshark.FileCapture('./test/example1.pcap')
+cap = './test/example1.pcap'
 sdp = {}
 cseq = []
+
+
+# try to load pcap file
+try:
+    cap = pyshark.FileCapture(cap)
+except FileNotFoundError as e:
+    print("Error opening file. Check file exists and you have correct permissions on the file")
+    exit()
+
+
 
 def find_call(callid):
     for pkt in cap:
